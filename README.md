@@ -1,18 +1,16 @@
-# Plant Hub
+# Smart Plant Moisture Meter
 Cassidy Linhares - 100615025
 ## Description
-The plant hub will be used to connect devices that help with managing indoor plants. It will be able to turn the lights on/off and notify the user via the hub when their plants need to be watered. The plant hub will ensure that the plants are properly taken care of for those who aren't the best at caring for plants.
+The Smart Plant Moisture Meter will be used for managing indoor plants and when they should be watered. Many plants tend to get over-watered as a result of the top of the soil being dry but the middle being still moist. Having to probe you plant each day is also very annoying and easy to forget. The Smart Plant Moisture Meter helps indoor gardeners keep track of their plant's moisture level and notify gardeners via a phone app when it is time to water.
 ## Requirements
 ### General
-- Must have lights and moisture meter as devices
-- Hub moisture meter must be able to withstand water
+- Must have moisture meter as device
+- moisture meter must be able to withstand water
 ### Functional
-- Must have a dashboard to see light status and moisture status
-- Must be able to turn on/off lights from hub
+- Must have a dashboard to see moisture status
 ### Communication
-- Must send a notification to hub when moisture is at <20%
-- Hub must have UI to communicate with user
+- Must send a notification to phone when moisture is at <20%
 ### Scalability
-- Hub must handle up to 2 devices
+- Must be able to handle up to 2 moisture meters
 ### Security & Connectivity
-- Hub must connect to devices within 5s
+- must connect to devices within 5s
