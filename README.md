@@ -8,7 +8,7 @@ Cassidy Linhares - 100615025
 1. [Set Up](#setup)  
 1. [Get IPv4 Address](#ipv4)  
 1. [Set Up Django Backend](#back)  
-1. [Set Up React Frontend](https://github.com/cassidylinhares/iotProjectWebFront#setup-)  
+1. [Set Up React Frontend](#front)  
 1. [API Usage](#api)  
 
 ## Description <a name="desc"></a>
@@ -31,7 +31,7 @@ User installed moisture sensor in plant and is on the web application. The moist
 The user can get the data, update or delete, the data.
 ## Set up <a name="setup"></a>
 1. Clone the repo
-### Get your ipv4 address <a name="ipv4"></a>
+### 2. Get your ipv4 address <a name="ipv4"></a>
 #### Windows
 1. Open command prompt and enter `ipconfig`
 2. Look for the wifi ipv4 address and copy it
@@ -39,7 +39,7 @@ The user can get the data, update or delete, the data.
 1. Open terminal and enter `ifconfig`
 2. Look for the wifi ipv4 address and copy it
 
-### Set Up Backend <a name="back"></a>
+### 3. Set Up Backend <a name="back"></a>
 1. Open the `IoTAssignment2Back/` in VS code
 2. Make a python virtual env (I used python 3.6) using these steps: https://code.visualstudio.com/docs/python/tutorial-django#_create-a-project-environment-for-the-django-tutorial
 3. Install the requirements with `pip install -r requirements.txt` into the virtual env
@@ -49,7 +49,9 @@ The user can get the data, update or delete, the data.
 7. Run the server with `python manage.py runserver your_ip_addr:8000` or `python manage.py runserver 0.0.0.0:8000`
 8. To run the test use `python managae.py test`
 
-### Set Up IoT Sensor <a name="sensor"></a>
+### 4. [Set Up Frontend](https://github.com/cassidylinhares/iotProjectWebFront#setup-) <a name="front"></a>
+
+### 5. Set Up IoT Sensor <a name="sensor"></a>
 1. You need to have the capacitive soil moisture sensor v1.2 and hook it up to the node mcu esp8266
 2. Open the iot_moistureSensor in arduino
 3. Replace `ssid` to your ssid and `password` to your wifi password
