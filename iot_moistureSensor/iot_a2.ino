@@ -5,11 +5,11 @@
 #define SENSORPIN A0
 
 //Wifi 
-const char* ssid = "Birbo Lan";
-const char* password = "birbosHumbleAbod3";
+const char* ssid = "your ssid";
+const char* password = "your wifi password";
 
 //Domain name with URL path or IP address with path
-const char *serverName = "http://192.168.0.33:8000/insertMoistureLevel/";
+const char *serverName = "http://your.ip.addr:8000/insertMoistureLevel/";
 
 //Timer
 unsigned long lastTime = 0;
