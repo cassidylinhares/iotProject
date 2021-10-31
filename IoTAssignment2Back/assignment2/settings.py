@@ -26,14 +26,9 @@ SECRET_KEY = 'django-insecure-6$@2p!kiqo=+0w#)s8dr1dwrv&kaub(uwhgmwbm(w4p&&)=uhc
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'http://localhost:3000', 
-    'http://localhost', 
-    'http://127.0.0.1', 
-    'http://localhost:8000', 
     'localhost', 
     '127.0.0.1',
-    '192.168.0.135',
-    '192.168.0.33',
+    'enter your ipv4 address here',
 ]
 
 CORS_ORIGIN_WHITELIST = [
