@@ -37,7 +37,6 @@ def get_item(request, pk):
 
 @api_view(['POST'])
 def insert_item(request):
-    print(request.data)
     serializer = MoistureSerializer(data=request.data)
 
     if serializer.is_valid(): 
