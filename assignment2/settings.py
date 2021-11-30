@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1',
-    'enter your ipv4 address here',
+    '192.168.0.33',
 ]
 
 CORS_ORIGIN_WHITELIST = [
