@@ -4,12 +4,13 @@ Cassidy Linhares - 100615025
 ## Table of Contents
 1. [Project Description](#desc)  
 1. [Project Requirements](#req)   
-1. [Project Use Case (assignment2)](#usecase)  
-1. [Set Up](#setup)  
-1. [Get IPv4 Address](#ipv4)  
-1. [Set Up Django Backend](#back)  
-1. [Set Up React Frontend](#front)  
-1. [API Usage](#api)  
+1. [Project Use Case (assignment2)](#usecase) 
+2. [Architecture](#arch) 
+3. [Set Up](#setup)  
+4. [Get IPv4 Address](#ipv4)  
+5. [Set Up Django Backend](#back)  
+6. [Set Up React Frontend](#front)  
+7. [API Usage](#api)  
 
 ## Description <a name="desc"></a>
 The Smart Plant Moisture Meter will be used for managing indoor plants and when they should be watered. Many plants tend to get over-watered as a result of the top of the soil being dry but the middle being still moist. Having to probe you plant each day is also very annoying and easy to forget. The Smart Plant Moisture Meter helps indoor gardeners keep track of their plant's moisture level and notify gardeners via a phone app when it is time to water.
@@ -28,9 +29,14 @@ The Smart Plant Moisture Meter will be used for managing indoor plants and when 
 
 ## Use Case <a name="usecase"></a>
 User installed moisture sensor in plant and is on the web application. The moisture sensor posts to the web application every 10min. 
-The user can get the data, update or delete, the data.
+The user can get the data, change their plant type, and view the history of the moisture meter
+
+## Architecture <a name="arch"></a>
+
+
 ## Set up <a name="setup"></a>
 1. Clone the repo
+
 ### 2. Get your ipv4 address <a name="ipv4"></a>
 #### Windows
 1. Open command prompt and enter `ipconfig`
