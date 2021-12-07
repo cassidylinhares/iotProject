@@ -5,7 +5,10 @@ from rest_framework.response import Response
 
 from .models import Moisture
 from .serializer import MoistureSerializer
+from .datasheet import plant_sheet
 
+
+PLANT_TYPE = { 'plant1': 'pothos', 'plant2': 'pothos'}
 
 @api_view(['GET'])
 def api_overview(request):
@@ -31,21 +34,24 @@ def get_items(request, plantId):
 
 
 @api_view(['GET'])
-def get_item(request, id):
+def get_recent(request, plantId):
     try:
-        entry = Moisture.objects.get(id=id)
+        entry = Moisture.objects.filter(plant_id=plantId).last()
         serializer = MoistureSerializer(entry)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+
+        pType = serializer.data['plant_type']
+        detail = {
+            'id': serializer.data['id'],
+            'plant_id': serializer.data['plant_id'],
+            'level': serializer.data['level'],
+            'created': serializer.data['created'],
+            'plant_type': pType,
+            'ideal_level': plant_sheet[pType]['level'],
+            'desc': plant_sheet[pType]['desc']
+        }
+        return Response(detail, status=status.HTTP_200_OK)
     except Moisture.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
-
-# @api_view(['GET'])
-# def get_recent(request):
-#     try:
-#         res = requests.get('http://192.168.0.150/').json()
-#         return Response(res, status=status.HTTP_200_OK)
-#     except:
-#         return Response(status=status.HTTP_404_NOT_FOUND)
 
 
 @api_view(['GET'])
@@ -58,10 +64,37 @@ def get_recents(request, plantId):
     except Moisture.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)
 
+@api_view(['GET'])
+def change_plant(request, plantId, plantType):
+    try:
+        PLANT_TYPE[plantId] = plantType
+        res = {
+            'plant_type': PLANT_TYPE[plantId],
+            'desc': plant_sheet[plantType]['desc']
+        }
+        return Response(res, status=status.HTTP_200_OK)
+    except:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+@api_view(['GET'])
+def get_plants(request):
+    try:
+        arr = plant_sheet.keys()
+        return Response(arr, status=status.HTTP_200_OK)
+    except:
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
 @api_view(['POST'])
 def insert_item(request):
-    serializer = MoistureSerializer(data=request.data)
+    id = request.data['plant_id']
+    
+    plant = {
+        'plant_type': PLANT_TYPE[id],
+        'plant_id': request.data['plant_id'],
+        'level': request.data['level']
+    }
+    
+    serializer = MoistureSerializer(data=plant)
 
     if serializer.is_valid():
         serializer.save()
