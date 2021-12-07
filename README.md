@@ -6,13 +6,14 @@ Cassidy Linhares - 100615025
 2. [Background Information](#bkgd) 
 3. [Project Requirements](#req)   
 4. [Project Use Case (assignment2)](#usecase) 
-5. [Architecture](#arch) 
-6. [Architecture & Deployement Decisions](#arch-deploy-des)
-7. [Set Up](#setup)  
-8. [Get IPv4 Address](#ipv4)  
-9. [Set Up Django Backend](#back)  
-10. [Set Up React Frontend](#front)  
-11. [API Usage](#api)  
+5. [Video Demo] (#demo)
+6. [Architecture](#arch) 
+7. [Architecture & Deployement Decisions](#arch-deploy-des)
+8. [Set Up](#setup)  
+9. [Get IPv4 Address](#ipv4)  
+10. [Set Up Django Backend](#back)  
+11. [Set Up React Frontend](#front)  
+12. [API Usage](#api)  
 
 ## Description <a name="desc"></a>
 The Smart Plant Moisture Meter will be used for managing indoor plants and when they should be watered. Many plants tend to get over-watered as a result of the top of the soil being dry but the middle being still moist. Having to probe you plant each day is also very annoying and easy to forget. The Smart Plant Moisture Meter helps indoor gardeners keep track of their plant's moisture level and notify gardeners via a phone app when it is time to water.
@@ -40,6 +41,8 @@ Many notification systems don’t have a physical aspect and just go by time pas
 ## Use Case <a name="usecase"></a>
 User installed moisture sensor in plant and is on the web application. The moisture sensor posts to the web application every 10min. 
 The user can get the data, change their plant type, and view the history of the moisture meter
+
+## [Video Demo](https://photos.app.goo.gl/kPCUTtyuuAzvgX7WA)<a name="demo"></a>
 
 ## Architecture <a name="arch"></a>
 ![Architecture IoT](https://user-images.githubusercontent.com/30815527/144935475-1a68c642-83c5-45c6-9da5-694828a5c8aa.png)
