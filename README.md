@@ -41,9 +41,6 @@ Many notification systems don’t have a physical aspect and just go by time pas
 User installed moisture sensor in plant and is on the web application. The moisture sensor posts to the web application every 10min. 
 The user can get the data, change their plant type, and view the history of the moisture meter
 
-## Design Methodology <a name="des-meth"></a>
-![Architecture IoT](https://user-images.githubusercontent.com/30815527/144935475-1a68c642-83c5-45c6-9da5-694828a5c8aa.png)
-
 ## Architecture <a name="arch"></a>
 ![Architecture IoT](https://user-images.githubusercontent.com/30815527/144935475-1a68c642-83c5-45c6-9da5-694828a5c8aa.png)
 
@@ -53,7 +50,7 @@ The user can get the data, change their plant type, and view the history of the 
 - Frontend was chosen as React because it has states and is very quick to build a UI and has many graphing UI libraries
 - Digital Ocean's Web app was chosen as the cloud service because it has auto-security features, auto-deploy, auto-routing, domain routing and free domain service. It also auto-configures the web application for you.   Another reason I didn't use the droplet was because I ran out of time due to my other group projects and I had a lot of trouble trying to get the example from class to work. I had issues with node-red and I had to actaully restart the droplet application 3 separate times because I'd run into security set up issuesn networking issues, or library deprecation issues. I spent like 5-6h a day for 5 days trying to get it working before I ultimately gave up because I had to focus my time on the rest of the project
 - Frontend was not run on cloud because that would mean running another cloud instance for it.
-- Sensors connected with Http instead of mqtt because connects to cloud easier and easier to secure. I tried to get the sensor to connect to the cloud service using HTTPs since http didn't work since the cloud is secured. I couldn't get it working and I'm not sure why. One of the challenges of IoT is debugging on the cloud and on the devices.
+- Sensors connected with Http instead of mqtt because connects to cloud easier and easier to secure. I managed to get the sensors to use https to connect to the cloud. 
 
 ## Set up <a name="setup"></a>
 1. Clone the repo
@@ -65,33 +62,38 @@ The user can get the data, change their plant type, and view the history of the 
 1. Open terminal and enter `ifconfig`
 2. Look for the wifi ipv4 address and copy it
 
-### 3. Set Up Backend <a name="back"></a>
+### 3. Set Up Backend Locally <a name="back"></a>
 1. Open the `IoTAssignment2Back/` in VS code
 2. Make a python virtual env (I used python 3.6) using these steps: https://code.visualstudio.com/docs/python/tutorial-django#_create-a-project-environment-for-the-django-tutorial
 3. Install the requirements with `pip install -r requirements.txt` into the virtual env
 4. Open the `settings.py` file
 5. In the `ALLOWED_HOSTS` (`line28`) add your ipv4 address
 6. Migrate the database with `python manage.py migrate`
-7. Run the server with `python manage.py runserver your_ip_addr:8000` or `python manage.py runserver 0.0.0.0:8000`
+7. Run the server with `python manage.py runserver your_ip_addr:8000` 
 8. To run the test use `python managae.py test`
 
-### 4. [Set Up Frontend](https://github.com/cassidylinhares/iotProjectWebFront#setup-) <a name="front"></a>
+### 4. [Set Up Frontend Locally](https://github.com/cassidylinhares/iotProjectWebFront#setup-) <a name="front"></a>
 
-### 5. Set Up IoT Sensor <a name="sensor"></a>
+### 5. Set Up IoT Sensor To Cloud <a name="sensor"></a>
 1. You need to have the capacitive soil moisture sensor v1.2 and hook it up to the node mcu esp8266
 2. Open the iot_moistureSensor in arduino
 3. Replace `ssid` to your ssid and `password` to your wifi password
 4. Replace `serverName` with your ip address
 5. upload to nodemcu and done!
+**Note:** The sensor connects to the cloud service. I didn't upload the code to make it run locally but a tutorial for this can be found here: https://randomnerdtutorials.com/esp8266-nodemcu-http-get-post-arduino/
 
 ## API Usagae & Implementation <a name="api"></a>
-### `getMoistureLevels/`
-Gets all the moisture levels, the timestamp created, and id
-### `getMoistureLevel/id/`
-Gets a moisture level by id. Returns the id, moisture level, and timestamp from when it was read
-### `insertMoistureLevel/`
-Inserts moisture level. This is currently inserted every 10min but the moisture sensor through IoT Post request. The sensor reads the values at that moment and then makes a POST request with application/json content type, the server receives these values and inserts them into the database. The id and timestamp are auto generated and do not need to be inserted by the device or user
-### `updateMoistureLevel/id/`
-Updates the moisture level using an existing id. The only thing that can be changed is the moisture level. Returns the id, timestamp, and updated moisture level
-### `deleteMoistureLevel/id/`
+### `GET /getPlants`
+Gets all the options for types of plants to pick from
+### `GET /changePlantType/plantId/plantType`
+Tells the server to set the ideal moisture for said meter id to be the plant type specified
+### `GET /getMoistureLevels/plantId`
+Gets all the moisture levels, meter ids, plant types, the timestamp created, and ids for a specific moisture meter
+### `GET /getMoistureLevel/plantId/`
+Gets a moisture level by moisture meter id. Possible values are ['plant1', 'plant2']. Returns the id, meter id, plant type, moisture level, and timestamp from when it was read
+### `POST /insertMoistureLevel`
+Inserts moisture level. This is currently inserted every 1 min but the moisture sensor through IoT Post request. The sensor reads the values at that moment and then makes a POST request with application/json content type, the server receives these values and inserts them into the database. The id, timestamp and plant type are auto generated and do not need to be inserted by the device or user
+### `PUT updateMoistureLevel/id/`
+Updates the moisture level using an existing id. The only thing that can be changed is the moisture level. Returns the id, meter id, plant type, timestamp, and updated moisture level
+### `DELETE deleteMoistureLevel/id/`
 Deletes a moisture level by id
