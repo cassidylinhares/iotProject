@@ -1,4 +1,4 @@
-# Smart Plant Moisture Meter
+# Plant Pal
 Cassidy Linhares - 100615025
 
 ## Table of Contents
@@ -53,6 +53,8 @@ The user can get the data, change their plant type, and view the history of the 
 - Sensors connected with Http instead of mqtt because connects to cloud easier and easier to secure. I managed to get the sensors to use https to connect to the cloud. 
 
 ## Set up <a name="setup"></a>
+To use the cloud instance, skip to the [Frontend](#front) and just do `npm install` & `npm run start` and don't change the proxy or api address.
+The cloud instance of the api can be found at https://plantpal-whv3b.ondigitalocean.app/
 1. Clone the repo
 ### 2. Get your ipv4 address <a name="ipv4"></a>
 #### Windows
@@ -75,11 +77,7 @@ The user can get the data, change their plant type, and view the history of the 
 ### 4. [Set Up Frontend Locally](https://github.com/cassidylinhares/iotProjectWebFront#setup-) <a name="front"></a>
 
 ### 5. Set Up IoT Sensor To Cloud <a name="sensor"></a>
-1. You need to have the capacitive soil moisture sensor v1.2 and hook it up to the node mcu esp8266
-2. Open the iot_moistureSensor in arduino
-3. Replace `ssid` to your ssid and `password` to your wifi password
-4. Replace `serverName` with your ip address
-5. upload to nodemcu and done!
+https://github.com/cassidylinhares/iotProjectSensor
 **Note:** The sensor connects to the cloud service. I didn't upload the code to make it run locally but a tutorial for this can be found here: https://randomnerdtutorials.com/esp8266-nodemcu-http-get-post-arduino/
 
 ## API Usagae & Implementation <a name="api"></a>
