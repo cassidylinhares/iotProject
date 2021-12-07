@@ -48,9 +48,11 @@ The user can get the data, change their plant type, and view the history of the 
 - Django was chosen as the server framework because it was easy to set up and easy to deploy. It also has an ORM which makes working with the database easy
 - Database was chosen as SQLite because it is lightweight, comes pre-built into Djano, and I wanted it to be local to each user.
 - Frontend was chosen as React because it has states and is very quick to build a UI and has many graphing UI libraries
-- Digital Ocean's Web app was chosen as the cloud service because it has auto-security features, auto-deploy, auto-routing, domain routing and free domain service. It also auto-configures the web application for you.   Another reason I didn't use the droplet was because I ran out of time due to my other group projects and I had a lot of trouble trying to get the example from class to work. I had issues with node-red and I had to actaully restart the droplet application 3 separate times because I'd run into security set up issuesn networking issues, or library deprecation issues. I spent like 5-6h a day for 5 days trying to get it working before I ultimately gave up because I had to focus my time on the rest of the project
-- Frontend was not run on cloud because that would mean running another cloud instance for it.
+- Digital Ocean's Web app was chosen as the cloud service because it has auto-security features, auto-deploy, auto-routing, domain routing and free domain service. It also auto-configures the web application for you.   
+- Another reason I didn't use the droplet was because I ran out of time due to my other group projects and I had a lot of trouble trying to get the example from class to work. I had issues with node-red and I had to actaully restart the droplet application 3 separate times because I'd run into security set up issuesn networking issues, or library deprecation issues. I spent like 5-6h a day for 5 days trying to get it working before I ultimately gave up because I had to focus my time on the rest of the project
+- Frontend was not run on cloud because that would mean running another cloud instance for it but it can connect perfectly fine to the cloud instance.
 - Sensors connected with Http instead of mqtt because connects to cloud easier and easier to secure. I managed to get the sensors to use https to connect to the cloud. 
+- I didn't use batteries upon hearing how the nodeMcu fries and drains the battery too fast from the other groups. 
 
 ## Set up <a name="setup"></a>
 To use the cloud instance, skip to the [Frontend](#front) and just do `npm install` & `npm run start` and don't change the proxy or api address.
