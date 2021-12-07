@@ -6,7 +6,7 @@ Cassidy Linhares - 100615025
 2. [Background Information](#bkgd) 
 3. [Project Requirements](#req)   
 4. [Project Use Case (assignment2)](#usecase) 
-5. [Video Demo] (#demo)
+5. [Video Demo](#demo)  
 6. [Architecture](#arch) 
 7. [Architecture & Deployement Decisions](#arch-deploy-des)
 8. [Set Up](#setup)  
@@ -42,7 +42,7 @@ Many notification systems don’t have a physical aspect and just go by time pas
 User installed moisture sensor in plant and is on the web application. The moisture sensor posts to the web application every 10min. 
 The user can get the data, change their plant type, and view the history of the moisture meter
 
-## [Video Demo](https://photos.app.goo.gl/kPCUTtyuuAzvgX7WA)<a name="demo"></a>
+## [Video Demo](https://photos.app.goo.gl/kPCUTtyuuAzvgX7WA) <a name="demo"></a>
 
 ## Architecture <a name="arch"></a>
 ![Architecture IoT](https://user-images.githubusercontent.com/30815527/144935475-1a68c642-83c5-45c6-9da5-694828a5c8aa.png)
