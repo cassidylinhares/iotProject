@@ -7,7 +7,7 @@ class TestViews(TestCase):
     def setUp(self):
         self.client = Client()
 
-        self.moisturetest1 = Moisture.objects.create(level=0.78)
+        self.moisturetest1 = Moisture.objects.create(level=0.78, plant_type='pothos')
 
         self.apiOverviewUrl = reverse('ApiOverview')
         self.getManyUrl = reverse('getMoistureLevels')
@@ -29,7 +29,7 @@ class TestViews(TestCase):
         self.assertEquals(response.status_code, 200)
 
     def test_insert(self):
-        response = self.client.post(self.create, {'level': 0.24})
+        response = self.client.post(self.create, {'level': 0.24, 'plant_type':'fern'})
         self.assertEquals(response.status_code, 201)
         self.assertEquals(str(Moisture.objects.last().level), '0.240')
         self.assertEquals(str(Moisture.objects.last().id), '2')
@@ -38,7 +38,8 @@ class TestViews(TestCase):
         response = self.client.put(
             self.update, 
             data={
-                'level': 0.14
+                'level': 0.14,
+                'plant_type':'cactus'
             }, 
             content_type='application/json'
         )
