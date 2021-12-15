@@ -113,6 +113,6 @@ There are multiple unit test done for 3 separate parts of the backend. It test t
 ### Models
 This tests the model used by django and SQLite. It test that it can create an object and asserts the entry created exist
 ### URLs
-This tests that the urls can be reached and the correct function gets called. *Please note that not all the urls are tested since I ran out of time*
+This tests that the urls can be reached and the correct function gets called. *Please note that not all the urls are tested or properly updated since I ran out of time*
 ### Views
-This tests that the function called by the url returns the right status code and the correct data if anything should be returned. *Please note that not all the views are tested since I ran out of time*
+This tests that the function called by the url returns the right status code and the correct data if anything should be returned. *Please note that not all the views are tested or updated since I ran out of time*
