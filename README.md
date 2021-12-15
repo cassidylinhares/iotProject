@@ -109,7 +109,7 @@ Deletes a moisture level by id
 ## Test Cases <a name="test"></a>
 The test cases can be found [here](https://github.com/cassidylinhares/iotProject/tree/main/apiAssignment2/tests)   
 There are multiple unit test done for 3 separate parts of the backend. It test the models, urls, and api call functions/views
-**To run test cases enter in the terminal: `python manage.py test`**
+   **To run test cases enter in the terminal: `python manage.py test`**
 ### Models
 This tests the model used by django and SQLite. It test that it can create an object and asserts the entry created exist
 ### URLs
