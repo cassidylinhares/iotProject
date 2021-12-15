@@ -7,13 +7,15 @@ Cassidy Linhares - 100615025
 3. [Project Requirements](#req)   
 4. [Project Use Case (assignment2)](#usecase) 
 5. [Video Demo](#demo)  
-6. [Architecture](#arch) 
-7. [Architecture & Deployement Decisions](#arch-deploy-des)
-8. [Set Up](#setup)  
-9. [Get IPv4 Address](#ipv4)  
-10. [Set Up Django Backend](#back)  
-11. [Set Up React Frontend](#front)  
-12. [API Usage](#api)  
+6. [Sequence Diagram](#seq) 
+7. [Architecture](#arch) 
+8. [Architecture & Deployement Decisions](#arch-deploy-des)
+9. [Set Up](#setup)  
+10. [Get IPv4 Address](#ipv4)  
+11. [Set Up Django Backend](#back)  
+12. [Set Up React Frontend](#front)  
+13. [API Usage](#api)  
+14. [Test Cases](#test) 
 
 ## Description <a name="desc"></a>
 The Smart Plant Moisture Meter will be used for managing indoor plants and when they should be watered. Many plants tend to get over-watered as a result of the top of the soil being dry but the middle being still moist. Having to probe you plant each day is also very annoying and easy to forget. The Smart Plant Moisture Meter helps indoor gardeners keep track of their plant's moisture level and notify gardeners via a phone app when it is time to water.
@@ -43,6 +45,9 @@ User installed moisture sensor in plant and is on the web application. The moist
 The user can get the data, change their plant type, and view the history of the moisture meter
 
 ## [Video Demo](https://photos.app.goo.gl/kPCUTtyuuAzvgX7WA) <a name="demo"></a>
+
+## Sequence Diagram <a name="seq"></a>
+![Sequence Diagram](https://user-images.githubusercontent.com/30815527/146114710-ca03374f-0959-401f-b283-9dd891e30634.png)
 
 ## Architecture <a name="arch"></a>
 ![Architecture IoT](https://user-images.githubusercontent.com/30815527/144935475-1a68c642-83c5-45c6-9da5-694828a5c8aa.png)
@@ -100,3 +105,14 @@ Inserts moisture level. This is currently inserted every 1 min but the moisture 
 Updates the moisture level using an existing id. The only thing that can be changed is the moisture level. Returns the id, meter id, plant type, timestamp, and updated moisture level
 ### `DELETE deleteMoistureLevel/id/`
 Deletes a moisture level by id
+
+## Test Cases <a name="test"></a>
+The test cases can be found [here](https://github.com/cassidylinhares/iotProject/tree/main/apiAssignment2/tests)   
+There are multiple unit test done for 3 separate parts of the backend. It test the models, urls, and api call functions/views
+**To run test cases enter in the terminal: `python manage.py test`**
+### Models
+This tests the model used by django and SQLite. It test that it can create an object and asserts the entry created exist
+### URLs
+This tests that the urls can be reached and the correct function gets called. *Please note that not all the urls are tested since I ran out of time*
+### Views
+This tests that the function called by the url returns the right status code and the correct data if anything should be returned. *Please note that not all the views are tested since I ran out of time*
